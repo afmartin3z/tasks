@@ -33,6 +33,14 @@ Build and start the containers by running.
 $ docker-compose up -d
 ```
 
+`Docker compose` first starts a container with the database, and the REST api waits until the database is available to start, so it takes a few minutes to expose the services.
+
+It is possible to consult the process by looking at the logs of the docker container using the following command:
+
+```
+$ docker logs tasks-api
+```
+
 The app should be available at `http://localhost:8080/api/task` if every thing goes well.
 
 
