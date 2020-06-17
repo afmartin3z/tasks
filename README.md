@@ -1,5 +1,7 @@
 # Tasks app
 
+![Java CI with Maven](https://github.com/afmartin3z/tasks/workflows/Java%20CI%20with%20Maven/badge.svg)
+
 This is a Spring Boot based Java app wich connects to a Oracle Database 11g instance running inside a Docker container.
 
 Application assumes that a Oracle Database 11g with name tasksdb is deployed on the host tasksdb. Default credentials are below:
