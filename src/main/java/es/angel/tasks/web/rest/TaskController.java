@@ -23,6 +23,7 @@ import es.angel.tasks.core.service.TaskService;
 import es.angel.tasks.core.service.util.BeanMapper;
 import es.angel.tasks.web.domain.TaskDTO;
 import es.angel.tasks.web.util.HeaderUtil;
+import io.swagger.annotations.ApiOperation;
 
 /**
  * The Class TaskController.
@@ -56,6 +57,7 @@ public class TaskController {
      * @return the tasks
      */
     @GetMapping()
+    @ApiOperation(value = "Get all the tasks.", notes = "Get all the tasks.")
     public ResponseEntity<List<TaskDTO>> getTasks() {
         log.info("Looking for all the tasks");
         List<Task> tasks = taskService.findAll();
@@ -69,6 +71,7 @@ public class TaskController {
      * @return the task by id
      */
     @GetMapping("/{id}")
+    @ApiOperation(value = "Get task by id", notes = "Get task by id")
     public ResponseEntity<TaskDTO> getTaskById(@PathVariable Long id) {
         log.info("Look for task with id: {}", id);
         ResponseEntity<TaskDTO> response;
@@ -90,6 +93,7 @@ public class TaskController {
      * @return the response entity
      */
     @PostMapping()
+    @ApiOperation(value = "Create a task.", notes = "Create a task.")
     public ResponseEntity createTask(@Valid @RequestBody TaskDTO taskDTO) {
         log.info("Create task: {}", taskDTO);
         ResponseEntity response;
@@ -122,6 +126,7 @@ public class TaskController {
      * @return the response entity
      */
     @PutMapping()
+    @ApiOperation(value = "Update a task.", notes = "Update a task.")
     public ResponseEntity updateTask(@Valid @RequestBody TaskDTO taskDTO) {
         log.info("Update task: {}", taskDTO);
         ResponseEntity response;
@@ -162,6 +167,7 @@ public class TaskController {
      * @return the response entity
      */
     @DeleteMapping("/{id}")
+    @ApiOperation(value = "Delete a task by id.", notes = "Delete a task by id.")
     public ResponseEntity deleteTaskById(@PathVariable Long id) {
         log.info("Delete task with id: {}", id);
         ResponseEntity response;
