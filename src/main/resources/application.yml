@@ -1,0 +1,19 @@
+# Drops existing tables, recreates them and executes import.sql
+spring:
+    jpa:
+        hibernate:
+            ddl-auto: update
+# Settings for the oracle connection
+    datasource:
+        url:
+            jdbc:oracle:thin:@tasksdb:1521:xe
+        username:
+            tasksdb
+        password:
+            tasksdb
+        driver-class-oracle:
+            jdbc:
+                driver:
+                    OracleDriver
+    liquibase:
+        contexts: prod

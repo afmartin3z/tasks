@@ -1,0 +1,18 @@
+version: "3.5"
+services:
+  tasksdb:
+    image: afmartin3z/tasksdb:latest
+    hostname: tasksdb
+    container_name: tasksdb
+    expose:
+      - 1521
+    ports:
+      - 1521:1521
+  tasks-api:
+    image: afmartin3z/tasks-api:latest
+    hostname: tasks-api
+    container_name: tasks-api
+    depends_on:
+      - tasksdb
+    ports:
+      - 8080:8080
